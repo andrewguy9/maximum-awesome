@@ -148,6 +148,12 @@ namespace :install do
     brew_cask_install 'cscreen'
   end
 
+  desc 'Install antigen'
+  task :antigen do
+    step 'antigen'
+    brew_install 'antigen'
+  end
+
   desc 'Install shellcheck'
   task :shellcheck do
     step 'shellcheck'
@@ -242,7 +248,8 @@ LINKED_FILES = filemap(
   'tmux.conf'     => '~/.tmux.conf',
   'vimrc'         => '~/.vimrc',
   'vimrc.bundles' => '~/.vimrc.bundles',
-  'bash.profile'  => '~/.bash_profile'
+  'bash.profile'  => '~/.bash_profile',
+  'zshrc'         => '~/.zshrc'
 )
 
 desc 'Install these config files.'
@@ -258,6 +265,7 @@ task :install do
   Rake::Task['install:reattach_to_user_namespace'].invoke
   Rake::Task['install:tmux'].invoke
   Rake::Task['install:macvim'].invoke
+  Rake::Task['install:antigen'].invoke
 
   # TODO install gem ctags?
   # TODO run gem ctags?
