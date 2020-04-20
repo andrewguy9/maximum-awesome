@@ -18,3 +18,6 @@ antigen theme robbyrussell
 
 # Tell Antigen that you're done.
 antigen apply
+
+# Uness LESS so that git outputs to shell directly.
+unset LESS;
