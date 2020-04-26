@@ -142,6 +142,12 @@ namespace :install do
     brew_install 'the_silver_searcher'
   end
 
+  desc 'Install jq. Jq is like sed for JSON data'
+  task :jq do
+    step 'jq'
+    brew_install 'jq'
+  end
+
   desc 'Install cscreen'
   task :cscreen do
     step 'cscreen'
@@ -266,6 +272,7 @@ task :install do
   Rake::Task['install:tmux'].invoke
   Rake::Task['install:macvim'].invoke
   Rake::Task['install:antigen'].invoke
+  Rake::Task['install:jq'].invoke
 
   # TODO install gem ctags?
   # TODO run gem ctags?
