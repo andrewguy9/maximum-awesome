@@ -154,6 +154,12 @@ namespace :install do
     brew_cask_install 'cscreen'
   end
 
+  desc 'Install Haskell Stack'
+  task :haskell_stack do
+    step 'haskell_stack'
+    brew_install 'haskell-stack'
+  end
+
   desc 'Install antigen'
   task :antigen do
     step 'antigen'
@@ -264,6 +270,7 @@ task :install do
   Rake::Task['install:brew_cask'].invoke
   Rake::Task['install:the_silver_searcher'].invoke
   Rake::Task['install:cscreen'].invoke
+  Rake::Task['install:haskell_stack'].invoke
   Rake::Task['install:shellcheck'].invoke
   Rake::Task['install:iterm'].invoke
   Rake::Task['install:ctags'].invoke
