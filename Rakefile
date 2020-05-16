@@ -17,6 +17,10 @@ def brew_install(package, *args)
   end
 end
 
+def stack_install(package, *args)
+  sh "stack install #{package} #{args.join ' '}"
+end
+
 def version_match?(requirement, version)
   # This is a hack, but it lets us avoid a gem dep for version checking.
   # Gem dependencies must be numeric, so we remove non-numeric characters here.
@@ -158,6 +162,12 @@ namespace :install do
   task :haskell_stack do
     step 'haskell_stack'
     brew_install 'haskell-stack'
+  end
+
+  desc 'Install hlint'
+  task :hlint do
+    step 'hlint'
+    stack_install 'hlint'
   end
 
   desc 'Install antigen'
