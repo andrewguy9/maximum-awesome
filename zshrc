@@ -21,3 +21,5 @@ antigen apply
 
 # Uness LESS so that git outputs to shell directly.
 unset LESS;
+
+path=("$HOME/.local/bin" $path)
