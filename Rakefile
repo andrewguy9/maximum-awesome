@@ -170,13 +170,6 @@ namespace :install do
     stack_install 'hlint'
   end
 
-  desc 'Install hdevtools'
-  task :hdevtools do
-    step 'hdevtools'
-    # hdevtools is broken on 8.8.3, but works on 8.6.5. See https://github.com/hdevtools/hdevtools/issues/94
-    stack_install 'hdevtools', '--resolver', 'lts-14.27'
-  end
-
   desc 'Install antigen'
   task :antigen do
     step 'antigen'
@@ -289,7 +282,6 @@ task :install do
   Rake::Task['install:cscreen'].invoke
   Rake::Task['install:haskell_stack'].invoke
   Rake::Task['install:hlint'].invoke
-  Rake::Task['install:hdevtools'].invoke
   Rake::Task['install:shellcheck'].invoke
   Rake::Task['install:iterm'].invoke
   Rake::Task['install:ctags'].invoke
