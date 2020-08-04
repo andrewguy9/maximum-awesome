@@ -170,6 +170,12 @@ namespace :install do
     stack_install 'hlint'
   end
 
+  desc 'Install unix2dos'
+  task :dos2unix do
+    step 'unix2dos'
+    brew_install 'unix2dos'
+  end
+
   desc 'Install antigen'
   task :antigen do
     step 'antigen'
@@ -282,6 +288,7 @@ task :install do
   Rake::Task['install:cscreen'].invoke
   Rake::Task['install:haskell_stack'].invoke
   Rake::Task['install:hlint'].invoke
+  Rake::Task['install:unix2dos'].invoke
   Rake::Task['install:shellcheck'].invoke
   Rake::Task['install:iterm'].invoke
   Rake::Task['install:ctags'].invoke
